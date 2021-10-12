@@ -12,7 +12,11 @@
 body:before {
   content: "";
   z-index: -1;
+<<<<<<< HEAD
   background-image: url("/dist/images/bg-mobile-dark.jpg");
+=======
+  background-image: url("../app/images/bg-mobile-dark.jpg");
+>>>>>>> 0b911c90bcfe2b546656e9c66fc844b0d33378e5
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
