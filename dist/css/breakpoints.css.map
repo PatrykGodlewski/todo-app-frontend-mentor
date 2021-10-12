@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../scrap_gulp_to_gowno/todo-app-main/app/scss/util/breakpoints.scss"
+    ],
+    "names": [],
+    "file": "breakpoints.css"
+}

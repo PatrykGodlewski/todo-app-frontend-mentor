@@ -1,0 +1,242 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body:before {
+  content: "";
+  z-index: -1;
+  background-image: url("/app/images/bg-mobile-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  top: 0;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #161722;
+}
+
+body .todo--app {
+  margin-top: 3rem;
+  width: 85vw;
+}
+
+body .todo--app .todo--header {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+body .todo--app .todo--header .todo--title {
+  font-size: 2.5rem;
+  letter-spacing: 1rem;
+}
+
+body .todo--app .todo--header .todo--switch--ldm {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-style: none;
+  margin-right: -15px;
+}
+
+body .todo--app .todo--header .todo--switch--ldm:hover {
+  cursor: pointer;
+}
+
+body .todo--app .todo--header .todo--switch--ldm:active {
+  background-color: pink;
+}
+
+body .todo--app .todo--wrap--input {
+  width: 100%;
+  position: relative;
+  background-color: #25273c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+body .todo--app .todo--wrap--input .todo--input {
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 50px;
+  margin: 2% 3%;
+  margin-left: 10%;
+  border-style: none;
+}
+
+body .todo--app .todo--wrap--input .todo--input:focus {
+  outline: none;
+}
+
+body .todo--app .todo--wrap--ul {
+  width: 100%;
+  background-color: #25273c;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 80px;
+          box-shadow: 10px 10px 80px;
+}
+
+body .todo--app .todo--wrap--ul .todo--items--left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 30px;
+  font-weight: 700;
+  color: #4d5066;
+  width: 100%;
+  height: 90px;
+}
+
+body .todo--app .todo--wrap--ul .todo--list {
+  color: white;
+  position: relative;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90px;
+  line-height: 85px;
+  list-style-type: none;
+  padding-left: 10%;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li button {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  margin-right: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="%23494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>');
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li button:hover {
+  cursor: pointer;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0px;
+  margin-left: -10%;
+  background-color: #4d5066;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li:hover button {
+  display: block;
+}
+
+body .todo--app .todo--filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #4d5066;
+  height: 70px;
+  width: 100%;
+  background-color: #25273c;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+body .todo--app .todo--filter label {
+  cursor: pointer;
+}
+
+body .todo--app .todo--filter input {
+  display: none;
+}
+
+body .todo--app .todo--filter input[type="radio"]:checked + label {
+  color: #3a7bfd;
+}
+
+body .todo--app .todo--drag--drop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 140px;
+  color: #4d5066;
+  font-weight: 700;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .todo--app .attribution {
+  text-decoration: none;
+  display: block;
+  color: #4d5066;
+}
+
+body .todo--app .attribution a {
+  color: #cacde8;
+  text-decoration: inherit;
+}
+/*# sourceMappingURL=style.css.map */
