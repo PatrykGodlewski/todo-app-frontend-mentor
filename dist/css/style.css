@@ -12,7 +12,7 @@
 body:before {
   content: "";
   z-index: -1;
-  background-image: url("/app/images/bg-mobile-dark.jpg");
+  background-image: url("/dist/images/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
