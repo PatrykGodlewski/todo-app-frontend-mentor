@@ -1,6 +1,6 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -12,7 +12,7 @@
 body:before {
   content: "";
   z-index: -1;
-  background-image: url("/dist/images/bg-mobile-dark.jpg");
+  background-image: url("../../images/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -29,11 +29,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   background-color: #161722;
 }
 
@@ -48,11 +48,11 @@ body .todo--app .todo--header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 3rem;
 }
 
@@ -108,7 +108,7 @@ body .todo--app .todo--wrap--ul {
   background-color: #25273c;
   border-radius: 5px;
   -webkit-box-shadow: 10px 10px 80px;
-          box-shadow: 10px 10px 80px;
+  box-shadow: 10px 10px 80px;
 }
 
 body .todo--app .todo--wrap--ul .todo--items--left {
@@ -116,11 +116,11 @@ body .todo--app .todo--wrap--ul .todo--items--left {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 30px 30px;
   font-weight: 700;
   color: #4d5066;
@@ -137,11 +137,11 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 9fr;
-      grid-template-columns: 1fr 9fr;
+  grid-template-columns: 1fr 9fr;
   justify-items: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 90px;
   line-height: 85px;
   list-style-type: none;
@@ -151,16 +151,16 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li {
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle {
   -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -178,23 +178,29 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle::before {
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#57ddff),
+    to(#c058f3)
+  );
   background: linear-gradient(#57ddff, #c058f3);
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--li--wrap {
   width: 100%;
   -ms-grid-column: 2;
-      grid-column-start: 2;
+  grid-column-start: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li button {
@@ -225,7 +231,13 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li::before {
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li:hover .todo--circle {
-  background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#57ddff),
+    to(#c058f3)
+  );
   background: linear-gradient(#57ddff, #c058f3);
 }
 
@@ -238,11 +250,11 @@ body .todo--app .todo--filter {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #4d5066;
   height: 70px;
   width: 100%;
@@ -272,11 +284,11 @@ body .todo--app .todo--drag--drop {
   color: #4d5066;
   font-weight: 700;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 body .todo--app .attribution {
