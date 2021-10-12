@@ -10,15 +10,24 @@ function addTodo(e) {
   if (e.key === "Enter") {
     ///Creating elems
     const li = document.createElement("li"),
-      btn = document.createElement("button");
+      btn = document.createElement("button"),
+      circle = document.createElement("div"),
+      text = document.createTextNode(todoInput.value),
+      p = document.createElement("p"),
+      wrap = document.createElement("div");
+
     ///Event for button
     btn.addEventListener("click", removeTodo, false);
-    /// text of elems
-    li.innerText = todoInput.value;
 
     li.classList = "todo--li";
-    //inserting elems to it self
-    li.appendChild(btn);
+    circle.classList = "todo--circle";
+    wrap.classList = "todo--li--wrap";
+
+    li.appendChild(circle);
+    p.appendChild(text);
+    wrap.appendChild(p);
+    wrap.appendChild(btn);
+    li.appendChild(wrap);
     todoList.appendChild(li);
     //storage VALUE
     storageTodo(todoInput.value);
@@ -40,15 +49,25 @@ function onLoadSetTodo() {
   let todos = JSON.parse(localStorage.getItem("tasks") || "[]");
   for (let i in todos) {
     const li = document.createElement("li"),
-      btn = document.createElement("button");
+      btn = document.createElement("button"),
+      circle = document.createElement("div"),
+      text = document.createTextNode(todos[i]),
+      p = document.createElement("p"),
+      wrap = document.createElement("div");
 
     ///Event for button
     btn.addEventListener("click", removeTodo, false);
 
-    li.innerText = todos[i];
     li.classList = "todo--li";
+    circle.classList = "todo--circle";
+    wrap.classList = "todo--li--wrap";
 
-    li.appendChild(btn);
+    li.appendChild(circle);
+    p.appendChild(text);
+    wrap.appendChild(p);
+    wrap.appendChild(btn);
+    li.appendChild(wrap);
+
     todoList.appendChild(li);
   }
 }
@@ -61,5 +80,5 @@ function removeTodo(e) {
   todos.splice(index, 1);
   localStorage.setItem("tasks", JSON.stringify(todos));
   ///Remove todo visual
-  e.target.parentNode.remove();
+  e.target.parentNode.parentNode.remove();
 }

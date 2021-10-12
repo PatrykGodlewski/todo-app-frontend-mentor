@@ -10,7 +10,7 @@
 $ulElement: hsl(235, 24%, 19%);
 $background: hsl(235, 21%, 11%);
 
-$leftPadding_text_decorLine: 10%;
+$leftPadding_text_decorLine: 13%;
 
 body:before {
   content: "";
@@ -73,7 +73,7 @@ body {
         width: 100%;
         height: 50px;
         margin: 2% 3%;
-        margin-left: 10%;
+        margin-left: 13%;
         border-style: none;
       }
 
@@ -107,18 +107,59 @@ body {
         // justify-content: space-between;
         // height: 100%;
         .todo--li {
-          display: flex;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr 9fr;
+          // flex-wrap:nowrap;
+          justify-items: center;
           align-items: center;
-
+          // gap: 5%;
           height: 90px;
 
           // text-align: center;
           line-height: 85px;
           list-style-type: none;
-          padding-left: $leftPadding_text_decorLine;
+          // padding-left: $leftPadding_text_decorLine;
           font-size: 1.5rem;
           position: relative;
+          .todo--circle {
+            // position:relative;
+            grid-column-start: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: hsl(233, 14%, 35%);
+            margin-left: 5%;
+            margin-right: 5%;
+          }
+          .todo--circle::before {
+            content: "";
+            // position:absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background-color: $ulElement;
+
+            // left:0px;
+            // top:0px;
+          }
+          .todo--circle:hover {
+            background: linear-gradient(
+              hsl(192, 100%, 67%),
+              hsl(280, 87%, 65%)
+            );
+          }
+          .todo--li--wrap {
+            width: 100%;
+            grid-column-start: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
           button {
             display: none;
             width: 20px;
@@ -145,11 +186,17 @@ body {
           height: 1px;
           width: 100%;
           bottom: 0px;
-          margin-left: -$leftPadding_text_decorLine;
+          // margin-left: -$leftPadding_text_decorLine;
           // left: -100px;
           background-color: hsl(233, 14%, 35%);
         }
         .todo--li:hover {
+          .todo--circle {
+            background: linear-gradient(
+              hsl(192, 100%, 67%),
+              hsl(280, 87%, 65%)
+            );
+          }
           button {
             display: block;
           }

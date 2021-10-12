@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../../scrap_gulp_to_gowno/todo-app-main/app/scss/util/fonrs.scss"
+        "../../scrap_gulp/todo-app-main/app/scss/util/fonrs.scss"
     ],
     "names": [],
     "file": "fonrs.css"
