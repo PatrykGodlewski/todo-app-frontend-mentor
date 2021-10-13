@@ -53,12 +53,17 @@
       <div class="todo--wrap--ul">
         <ul class="todo--list" id="todo--list"></ul>
         <div class="todo--items--left">
-          <span>items left</span><span>Clear completed</span>
+          <span><span id="todo--counter"></span>items left</span
+          ><span
+            ><button class="todo--button--clear" id="todo--button--clear">
+              Clear completed
+            </button></span
+          >
         </div>
       </div>
 
       <div class="todo--filter">
-        <input type="radio" name="filter" id="All" />
+        <input type="radio" name="filter" id="All" checked="checked" />
         <label for="All">All</label>
 
         <input type="radio" name="filter" id="Active" />
