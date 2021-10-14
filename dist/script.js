@@ -45,8 +45,8 @@ function addTodo(e) {
     li.appendChild(wrap);
     todoList.appendChild(li);
     //storage VALUE
-    storageTodo(todoInput.value);
-    //Seting inpust value to ""
+    storageTodo(todoInput.value); //thi can be then removed
+    // localStorageUpdate();// <========== same and i think better resolve
     todoInput.value = "";
     ///check counter
     todoCounter();
@@ -79,6 +79,7 @@ function onLoadSetTodo() {
     circle.classList = "todo--circle";
     wrap.classList = "todo--li--wrap";
 
+    li.setAttribute("draggable", "true");
     li.appendChild(circle);
     p.appendChild(text);
     wrap.appendChild(p);
@@ -89,17 +90,21 @@ function onLoadSetTodo() {
     ///check counter
     todoCounter();
   }
+  let index = JSON.parse(localStorage.getItem("completedIndex"));
+  for (let i = 0; i < index.length; i++) {
+    [...todoList.children][index[i]].children[0].classList =
+      "todo--circle__completed";
+  }
 }
 
 function removeTodo(e) {
   ///Remove todo localStorage
   let lis = todoList.getElementsByTagName("li");
   let index = [...lis].indexOf(e.target.parentNode.parentNode);
-  let todos = JSON.parse(localStorage.getItem("tasks") || "[]");
-  todos.splice(index, 1);
-  localStorage.setItem("tasks", JSON.stringify(todos));
   ///Remove todo visual
   e.target.parentNode.parentNode.remove();
+  //update localstorage
+  localStorageUpdate();
   ///check counter
   todoCounter();
 }
@@ -110,19 +115,54 @@ function todoCounter() {
   const counterTag = document.getElementById("todo--counter");
   counterTag.innerText = lastIndex + " ";
 }
+function updateCompletedIndex() {
+  let list = getIndex();
+  localStorage.removeItem("completedIndex");
+  localStorage.setItem("completedIndex", JSON.stringify(list));
+}
 
 function todoComplete(e) {
   if (e.target.classList.value === "todo--circle") {
     e.target.classList = "todo--circle__completed";
     e.target.parentNode.style.textDecoration = "line-through";
     e.target.parentNode.style.color = "hsl(235, 19%, 35%)";
+    updateCompletedIndex();
   } else if (e.target.classList.value === "todo--circle__completed") {
     e.target.classList = "todo--circle";
     e.target.parentNode.style.textDecoration = "";
     e.target.parentNode.style.color = "";
+    updateCompletedIndex();
   }
 }
+////////index of completed//////
+function getIndex() {
+  let index = [];
+  for (let i = 0; i < [...todoList.children].length; i++) {
+    [...todoList.children][i].children[0].classList.value ===
+    "todo--circle__completed"
+      ? index.push(i)
+      : null;
+  }
+  return index;
+}
+/////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////// localStorageUpdate
+function getList() {
+  let list = [];
+  for (let i = 0; i < [...todoList.children].length; i++) {
+    list.push([...todoList.children][i].children[1].children[0].innerText);
+  }
+  return list;
+}
+function localStorageUpdate() {
+  let list = getList();
+  localStorage.clear();
+  localStorage.setItem("tasks", JSON.stringify(list));
+}
+//////////////////////////////////////////
+
+///////////////////FILTERS
 function clearCompleted() {
   let lis = todoList.getElementsByTagName("li");
   let length = [...lis].length;
@@ -130,14 +170,12 @@ function clearCompleted() {
   for (let i = 0; i < length; i++) {
     if (lis[0 + c].children[0].classList.value === "todo--circle__completed") {
       lis[0 + c].remove();
-      let todos = JSON.parse(localStorage.getItem("tasks") || "[]");
-      todos.splice(length, 1);
-      localStorage.setItem("tasks", JSON.stringify(todos));
     } else {
       c++;
     }
     todoCounter();
   }
+  localStorageUpdate();
 }
 function filterAll() {
   let lis = todoList.getElementsByTagName("li");
