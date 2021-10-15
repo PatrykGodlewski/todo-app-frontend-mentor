@@ -7,6 +7,7 @@
 
 :root {
   font-family: "Josefin Sans", sans-serif;
+  color-scheme: light dark;
 }
 
 body:before {
@@ -22,6 +23,7 @@ body:before {
 }
 
 body {
+  overflow-x: hidden;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -293,10 +295,9 @@ body .todo--app .todo--filter {
           align-items: center;
   color: #4d5066;
   height: 70px;
-  width: 100%;
+  width: 70%;
   background-color: #25273c;
   border-radius: 5px;
-  margin-top: 1.5rem;
   font-weight: 700;
 }
 
@@ -314,6 +315,12 @@ body .todo--app .todo--filter input[type="radio"]:hover + label {
 
 body .todo--app .todo--filter input[type="radio"]:checked + label {
   color: #3a7bfd;
+}
+
+body .todo--app .tf1 {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: none;
 }
 
 body .todo--app .todo--drag--drop {
@@ -340,5 +347,73 @@ body .todo--app .attribution {
 body .todo--app .attribution a {
   color: #cacde8;
   text-decoration: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    color: #eee;
+    background-color: #161722;
+  }
+  .todo--wrap--ul {
+    -webkit-box-shadow: 10px 10px 80px;
+            box-shadow: 10px 10px 80px;
+    color: black;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* defaults to dark theme */
+  body:before {
+    background-image: url("../../images/bg-mobile-light.jpg");
+  }
+  body {
+    background-color: #e4e5f1;
+  }
+  body .todo--app .todo--filter {
+    background-color: #fafafa;
+    color: #9394a5;
+  }
+  body .todo--app .todo--filter input[type="radio"]:hover + label {
+    color: #484b6a;
+  }
+  body .todo--app .todo--wrap--input {
+    background-color: #fafafa;
+  }
+  body .todo--app .todo--wrap--input .todo--input {
+    background-color: #fafafa;
+    color: #484b6a;
+  }
+  body .todo--app .todo--wrap--ul {
+    background-color: #fafafa;
+    -webkit-box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+            box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+  }
+  body .todo--app .todo--wrap--ul .todo--items--left {
+    color: #9394a5;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li::before {
+    background-color: #e4e5f1;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li {
+    color: #484b6a;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle {
+    background-color: #e4e5f1;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle::before {
+    background-color: #fafafa;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body .todo--app .tf1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body .todo--app .todo--items--left .tf2 {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

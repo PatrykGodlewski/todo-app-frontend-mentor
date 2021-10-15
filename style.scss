@@ -1,0 +1,453 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  font-family: "Josefin Sans", sans-serif;
+  color-scheme: light dark;
+}
+// LIGHT THEME
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+//DARK THEME
+$Very-Dark-Blue: hsl(235, 21%, 11%);
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+$Light-Grayish-Blue-dark: hsl(234, 39%, 85%);
+$Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+$Dark-Grayish-Blue-dark: hsl(234, 11%, 52%);
+$Very-Dark-Grayish-Blue-dark: hsl(233, 14%, 35%);
+$Very-Dark-Grayish-Blue2: hsl(237, 14%, 26%);
+
+$ulElement--dark: hsl(235, 24%, 19%);
+$background--dark: hsl(235, 21%, 11%);
+
+$leftPadding_text_decorLine: 13%;
+
+body:before {
+  content: "";
+  z-index: -1;
+  background-image: url("../../images/bg-mobile-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  top: 0;
+  
+}
+body {
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $background--dark;
+  .todo--app {
+    margin-top: 3rem;
+    width: 85vw;
+    // background-color: red;
+    .todo--header {
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      .todo--title {
+        font-size: 2.5rem;
+        letter-spacing: 1rem;
+      }
+      .todo--switch--ldm {
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-style: none;
+        margin-right: -15px;
+      }
+      .todo--switch--ldm:hover {
+        cursor: pointer;
+      }
+      .todo--switch--ldm:active {
+        background-color: pink;
+      }
+    }
+    .todo--wrap--input {
+      width: 100%;
+      position: relative;
+      background-color: $ulElement--dark;
+      display: flex;
+      border-radius: 5px;
+      margin-bottom: 2rem;
+      .todo--input {
+        background-color: transparent;
+        color: white;
+        font-size: 1.5rem;
+        width: 100%;
+        height: 50px;
+        margin: 2% 3%;
+        margin-left: 13%;
+        border-style: none;
+      }
+
+      .todo--input:focus {
+        outline: none;
+      }
+    }
+    .todo--wrap--ul {
+      width: 100%;
+      background-color: $ulElement--dark;
+      border-radius: 5px;
+
+      box-shadow: 10px 10px 80px;
+
+      .todo--items--left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 30px 30px;
+        font-weight: 700;
+        color: hsl(233, 14%, 35%);
+        // display:none;
+        width: 100%;
+        height: 90px;
+        span {
+          .todo--button--clear {
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+
+            color: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+
+            cursor: pointer;
+          }
+          .todo--button--clear:hover {
+            color: hsl(233, 11%, 84%);
+          }
+        }
+      }
+
+      .todo--list {
+        color: hsl(233, 11%, 84%);
+        position: relative;
+        // display: flex;
+        // justify-content: space-between;
+        // height: 100%;
+        .todo--li {
+          display: grid;
+          grid-template-columns: 1fr 9fr;
+          // flex-wrap:nowrap;
+          justify-items: center;
+          align-items: center;
+          // gap: 5%;
+          height: 90px;
+
+          // text-align: center;
+          line-height: 85px;
+          list-style-type: none;
+          // padding-left: $leftPadding_text_decorLine;
+          font-size: 1.5rem;
+          position: relative;
+          .todo--circle__completed {
+            grid-column-start: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: red;
+            background: linear-gradient(
+              hsl(192, 100%, 67%),
+              hsl(280, 87%, 65%)
+            );
+            margin-left: 5%;
+            margin-right: 5%;
+
+            height: 40px;
+            width: 40px;
+          }
+          .todo--circle__completed::after {
+            content: "";
+            margin-top: 6px;
+            height: 20px;
+            width: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="%23FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>');
+          }
+          .todo--circle {
+            grid-column-start: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: hsl(233, 14%, 35%);
+            margin-left: 5%;
+            margin-right: 5%;
+          }
+          .todo--circle::before {
+            content: "";
+            // position:absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background-color: $ulElement--dark;
+
+            // left:0px;
+            // top:0px;
+          }
+          .todo--circle:hover {
+            background: linear-gradient(
+              hsl(192, 100%, 67%),
+              hsl(280, 87%, 65%)
+            );
+          }
+          .todo--li--wrap {
+            width: 100%;
+            grid-column-start: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          button {
+            display: none;
+            width: 20px;
+            height: 20px;
+
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+
+            margin-right: 50px;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="%23494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>');
+          }
+          button:hover {
+            cursor: pointer;
+          }
+        }
+        .todo--li::before {
+          content: "";
+          display: block;
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          bottom: 0px;
+          // margin-left: -$leftPadding_text_decorLine;
+          // left: -100px;
+          background-color: hsl(233, 14%, 35%);
+        }
+        .todo--li:hover {
+          .todo--circle {
+            background: linear-gradient(
+              hsl(192, 100%, 67%),
+              hsl(280, 87%, 65%)
+            );
+          }
+          button {
+            display: block;
+          }
+        }
+      }
+    }
+    .todo--filter {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      
+
+      color: hsl(233, 14%, 35%);
+
+      height: 70px;
+      width: 70%;
+      background-color: $ulElement--dark;
+      border-radius: 5px;
+      // margin-top: 1.5rem;
+      font-weight: 700;
+      label {
+        cursor: pointer;
+      }
+      input {
+        display: none;
+      }
+      input[type="radio"]:hover + label {
+        color: hsl(233, 11%, 84%);
+      }
+      input[type="radio"]:checked + label {
+        color: hsl(220, 98%, 61%);
+      }
+    }
+    .tf1 {
+      width: 100%;
+      margin-top: 1.5rem;
+      display:none;
+    }
+
+    .todo--drag--drop {
+      display: flex;
+      height: 140px;
+      color: hsl(233, 14%, 35%);
+      font-weight: 700;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    .attribution {
+      text-decoration: none;
+      display: block;
+      color: hsl(233, 14%, 35%);
+      a {
+        color: hsl(234, 39%, 85%);
+        text-decoration: inherit;
+      }
+    }
+  }
+}
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body { 
+    color: #eee;
+    background-color: $background--dark;
+  }
+  .todo--wrap--ul{
+    box-shadow: 10px 10px 80px;
+    color:black;
+  }
+}
+@media (prefers-color-scheme: light) {
+    /* defaults to dark theme */
+    body:before{
+      background-image: url("../../images/bg-mobile-light.jpg");
+    }
+    body { 
+      background-color: $Very-Light-Grayish-Blue;
+      .todo--app{
+        .todo--filter{
+          background-color:$Very-Light-Gray ;
+          color:$Dark-Grayish-Blue;
+
+          input[type="radio"]:hover + label {
+            color: $Very-Dark-Grayish-Blue;
+          }
+        }
+        
+        .todo--wrap--input{
+          background-color:$Very-Light-Gray ;
+        .todo--input{
+          background-color:$Very-Light-Gray ;
+          color:$Very-Dark-Grayish-Blue;
+        }}
+        .todo--wrap--ul{
+          background-color: $Very-Light-Gray;
+          box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
+          .todo--items--left{
+            color:$Dark-Grayish-Blue;
+          }
+          .todo--list{
+            .todo--li::before{
+              background-color: $Very-Light-Grayish-Blue;
+            }
+          .todo--li{
+            color:$Very-Dark-Grayish-Blue;
+            
+            .todo--circle{
+              background-color: $Very-Light-Grayish-Blue;
+            }
+            .todo--circle::before{
+              
+              background-color: $Very-Light-Gray;
+            }
+          }
+          }
+        }
+      }
+    }
+    
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    body{
+      .todo--app {
+        .tf1{
+      display:flex;}
+    }} 
+    body{
+      .todo--app{
+        .todo--items--left {
+          .tf2{
+      display:none;} }
+    }} 
+  }
+  // .dark-theme{
+  //   color: #eee;
+  //   background-color: $background--dark;
+  // }
+
+  
+  // .light-theme { 
+  //   body:before{
+  //     background-image: url("../../images/bg-mobile-light.jpg");
+  //   }
+  //   body { 
+  //     background-color: $Very-Light-Grayish-Blue;
+  //     .todo--app{
+  //       .todo--filter{
+  //         background-color:$Very-Light-Gray ;
+  //         color:$Dark-Grayish-Blue;
+
+  //         input[type="radio"]:hover + label {
+  //           color: $Very-Dark-Grayish-Blue;
+  //         }
+  //       }
+        
+  //       .todo--wrap--input{
+  //         background-color:$Very-Light-Gray ;
+  //       .todo--input{
+  //         background-color:$Very-Light-Gray ;
+  //         color:$Very-Dark-Grayish-Blue;
+  //       }}
+  //       .todo--wrap--ul{
+  //         background-color: $Very-Light-Gray;
+  //         box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
+  //         .todo--items--left{
+  //           color:$Dark-Grayish-Blue;
+  //         }
+  //         .todo--list{
+  //           .todo--li::before{
+  //             background-color: $Very-Light-Grayish-Blue;
+  //           }
+  //         .todo--li{
+  //           color:$Very-Dark-Grayish-Blue;
+            
+  //           .todo--circle{
+  //             background-color: $Very-Light-Grayish-Blue;
+  //           }
+  //           .todo--circle::before{
+              
+  //             background-color: $Very-Light-Gray;
+  //           }
+  //         }
+  //         }
+  //       }
+  //     }
+  //   }
+    
+  // }

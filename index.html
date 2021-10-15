@@ -20,7 +20,7 @@
     <main class="todo--app">
       <header class="todo--header">
         <h1 class="todo--title">TODO</h1>
-        <button class="todo--switch--ldm">
+        <button class="todo--switch--ldm" id="todo--switch--ldm">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
             <path
               fill="#FFF"
@@ -53,16 +53,26 @@
       <div class="todo--wrap--ul">
         <ul class="todo--list" id="todo--list"></ul>
         <div class="todo--items--left">
-          <span><span id="todo--counter"></span>items left</span
-          ><span
-            ><button class="todo--button--clear" id="todo--button--clear">
+          <span><span id="todo--counter"></span>items left</span>
+            <div class="todo--filter tf2">
+              <input type="radio" name="filter" id="All" checked="checked" />
+              <label for="All">All</label>
+      
+              <input type="radio" name="filter" id="Active" />
+              <label for="Active">Active</label>
+      
+              <input type="radio" name="filter" id="Completed" />
+              <label for="Completed">Completed</label>
+            </div>
+          <span>
+            <button class="todo--button--clear" id="todo--button--clear">
               Clear completed
-            </button></span
-          >
+            </button>
+          </span>
         </div>
       </div>
 
-      <div class="todo--filter">
+      <div class="todo--filter tf1">
         <input type="radio" name="filter" id="All" checked="checked" />
         <label for="All">All</label>
 
@@ -80,6 +90,8 @@
         >. Coded by <a href="#">Patryk Godlewski</a>.
       </div>
     </main>
+    <script src="dist/Sortable.min.js"></script>
     <script src="dist/script.js"></script>
+    
   </body>
 </html>

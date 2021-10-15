@@ -1,3 +1,4 @@
+
 const todoInput = document.getElementById("todo--input"),
   todoSubmit = document.getElementById("todo--submit"),
   todoList = document.getElementById("todo--list"),
@@ -5,6 +6,22 @@ const todoInput = document.getElementById("todo--input"),
   filterButtonAll = document.getElementById("All"),
   filterButtonActive = document.getElementById("Active"),
   filterButtonCompleted = document.getElementById("Completed");
+  let = ldmButton = document.getElementById("todo--switch--ldm");
+
+
+
+ ldmButton.addEventListener("click", function() {
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // If the OS is set to dark mode...
+  if (prefersDarkScheme) {
+    // ...then apply the .light-theme class to override those styles
+    document.body.classList.toggle("light-theme");
+    // Otherwise...
+  } else {
+    // ...apply the .dark-theme class to override the default light styles
+    document.body.classList.toggle("dark-theme");
+  }
+});
 
 window.onload = onLoadSetTodo();
 
@@ -90,7 +107,7 @@ function onLoadSetTodo() {
     ///check counter
     todoCounter();
   }
-  let index = JSON.parse(localStorage.getItem("completedIndex"));
+  let index = JSON.parse(localStorage.getItem("completedIndex") || "[]");
   for (let i = 0; i < index.length; i++) {
     [...todoList.children][index[i]].children[0].classList =
       "todo--circle__completed";
@@ -197,3 +214,10 @@ function filterCompleted() {
   let active = document.getElementsByClassName("todo--circle");
   for (let i in [...active]) active[i].parentNode.style.display = "none";
 }
+
+new Sortable(todoList, {
+  animation: 150,
+  onEnd: function (e) {
+    localStorageUpdate()
+  },
+});
