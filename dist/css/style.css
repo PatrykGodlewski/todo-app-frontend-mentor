@@ -158,7 +158,6 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 90px;
   line-height: 85px;
   list-style-type: none;
   font-size: 1.5rem;
@@ -245,10 +244,21 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--li--wrap {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-height: 80px;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--li--wrap p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  word-break: break-word;
+  padding-right: 10%;
+  line-height: 2rem;
+  margin: 20px 0px;
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li button {
-  display: none;
+  opacity: 0;
   width: 20px;
   height: 20px;
   background-color: transparent;
@@ -280,7 +290,7 @@ body .todo--app .todo--wrap--ul .todo--list .todo--li:hover .todo--circle {
 }
 
 body .todo--app .todo--wrap--ul .todo--list .todo--li:hover button {
-  display: block;
+  opacity: 1;
 }
 
 body .todo--app .todo--filter {
@@ -414,6 +424,10 @@ body .todo--app .attribution a {
   }
   body .todo--app .todo--items--left .tf2 {
     display: none;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li {
+    -ms-grid-columns: 2fr 9fr;
+        grid-template-columns: 2fr 9fr;
   }
 }
 /*# sourceMappingURL=style.css.map */

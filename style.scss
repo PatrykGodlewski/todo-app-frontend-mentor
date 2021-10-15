@@ -148,7 +148,7 @@ body {
           justify-items: center;
           align-items: center;
           // gap: 5%;
-          height: 90px;
+          // height: 990px;
 
           // text-align: center;
           line-height: 85px;
@@ -221,10 +221,18 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 80px;
+            p{
+              flex:1;
+              word-break: break-word;
+              padding-right: 10%;
+              line-height: 2rem;
+              margin: 20px 0px;
+            }
           }
 
           button {
-            display: none;
+            opacity: 0;
             width: 20px;
             height: 20px;
 
@@ -261,7 +269,7 @@ body {
             );
           }
           button {
-            display: block;
+            opacity:1;
           }
         }
       }
@@ -395,7 +403,20 @@ body {
           .tf2{
       display:none;} }
     }} 
+    body{
+      .todo--app{
+        .todo--wrap--ul{
+          .todo--list{
+            .todo--li{
+              grid-template-columns: 2fr 9fr;
+  
+            }
+          }
+        }
+      }
+    }
   }
+  
   // .dark-theme{
   //   color: #eee;
   //   background-color: $background--dark;
