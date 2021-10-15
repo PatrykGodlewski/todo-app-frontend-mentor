@@ -215,9 +215,10 @@ function filterCompleted() {
   for (let i in [...active]) active[i].parentNode.style.display = "none";
 }
 
-new Sortable(todoList, {
+let liSort = new Sortable(todoList, {
   animation: 150,
   onEnd: function (e) {
     localStorageUpdate()
   },
+  delayOnTouchOnly:true,
 });
