@@ -220,5 +220,7 @@ let liSort = new Sortable(todoList, {
   onEnd: function (e) {
     localStorageUpdate()
   },
+
   delayOnTouchOnly:true,
+  delay: 1000,
 });
