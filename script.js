@@ -217,9 +217,10 @@ function filterCompleted() {
 
 let liSort = new Sortable(todoList, {
   animation: 150,
-  swapThreshold: 0.50,
   onEnd: function (e) {
     localStorageUpdate()
   },
+
   delayOnTouchOnly:true,
+  delay: 1000,
 });
