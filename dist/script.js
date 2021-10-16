@@ -38,24 +38,19 @@ if (prefersDarkScheme) {
 ldmButton.addEventListener(
   "click",
   function (e) {
-    console.log("xd");
-    if (e.target.id === "i_light") {
+    if (ldmButton.children[0].id === "i_light") {
       ldmButton.innerHTML = iconForDark;
       ldmButton.children[0].id = "i_dark";
-
-      let s_light = document.getElementById("s_light");
-      s_light === null ? htmlHead[0].appendChild(styleLinkLight) : null;
-      let s_dark = document.getElementById("s_dark");
-      s_dark === null ? null : s_dark.remove();
-    } else if (e.target.id === "i_dark") {
+    } else if (ldmButton.children[0].id === "i_dark") {
       ldmButton.innerHTML = iconForLight;
       ldmButton.children[0].id = "i_light";
-
-      let s_dark = document.getElementById("s_dark");
-      s_dark === null ? htmlHead[0].appendChild(styleLinkLight) : null;
-      let s_light = document.getElementById("s_light");
-      s_light === null ? null : s_light.remove();
     }
+
+    let s_light = document.getElementById("s_light");
+    console.log(s_light);
+    s_light === null
+      ? htmlHead[0].appendChild(styleLinkLight)
+      : s_light.remove();
   },
   false
 );
