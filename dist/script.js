@@ -222,5 +222,5 @@ let liSort = new Sortable(todoList, {
   },
 
   delayOnTouchOnly: true,
-  delay: 400,
+  delay: 100,
 });
