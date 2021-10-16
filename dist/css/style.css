@@ -17,7 +17,7 @@ body:before {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 40%;
+  height: 350px;
   width: 100%;
   top: 0;
 }
@@ -41,7 +41,8 @@ body {
 
 body .todo--app {
   margin-top: 3rem;
-  width: 85vw;
+  min-width: 50vw;
+  max-width: 75vw;
 }
 
 body .todo--app .todo--header {
@@ -73,10 +74,6 @@ body .todo--app .todo--header .todo--switch--ldm {
 
 body .todo--app .todo--header .todo--switch--ldm:hover {
   cursor: pointer;
-}
-
-body .todo--app .todo--header .todo--switch--ldm:active {
-  background-color: pink;
 }
 
 body .todo--app .todo--wrap--input {
@@ -437,7 +434,20 @@ body .todo--app .attribution a {
   }
 }
 
+@media (max-width: 1150px) and (min-width: 768px) {
+  body::before {
+    height: 320px;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li {
+    -ms-grid-columns: 2fr 8fr;
+        grid-template-columns: 2fr 8fr;
+  }
+}
+
 @media (max-width: 767px) {
+  body::before {
+    height: 300px;
+  }
   body .todo--app .tf1 {
     display: -webkit-box;
     display: -ms-flexbox;

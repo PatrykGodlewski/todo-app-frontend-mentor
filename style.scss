@@ -35,7 +35,7 @@ body:before {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 40%;
+  height: 350px;
   width: 100%;
   top: 0;
 }
@@ -50,7 +50,8 @@ body {
   background-color: $background--dark;
   .todo--app {
     margin-top: 3rem;
-    width: 85vw;
+    min-width: 50vw;
+    max-width: 75vw;
     // background-color: red;
     .todo--header {
       color: white;
@@ -71,9 +72,6 @@ body {
       }
       .todo--switch--ldm:hover {
         cursor: pointer;
-      }
-      .todo--switch--ldm:active {
-        background-color: pink;
       }
     }
     .todo--wrap--input {
@@ -405,7 +403,27 @@ body {
   }
 }
 
+@media (max-width: 1150px) and (min-width: 768px) {
+  body::before {
+    height: 320px;
+  }
+  body {
+    .todo--app {
+      .todo--wrap--ul {
+        .todo--list {
+          .todo--li {
+            grid-template-columns: 2fr 8fr;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 767px) {
+  body::before {
+    height: 300px;
+  }
   body {
     .todo--app {
       .tf1 {
@@ -438,58 +456,3 @@ body {
     }
   }
 }
-
-// .dark-theme{
-//   color: #eee;
-//   background-color: $background--dark;
-// }
-
-// .light-theme {
-//   body:before{
-//     background-image: url("../../images/bg-mobile-light.jpg");
-//   }
-//   body {
-//     background-color: $Very-Light-Grayish-Blue;
-//     .todo--app{
-//       .todo--filter{
-//         background-color:$Very-Light-Gray ;
-//         color:$Dark-Grayish-Blue;
-
-//         input[type="radio"]:hover + label {
-//           color: $Very-Dark-Grayish-Blue;
-//         }
-//       }
-
-//       .todo--wrap--input{
-//         background-color:$Very-Light-Gray ;
-//       .todo--input{
-//         background-color:$Very-Light-Gray ;
-//         color:$Very-Dark-Grayish-Blue;
-//       }}
-//       .todo--wrap--ul{
-//         background-color: $Very-Light-Gray;
-//         box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
-//         .todo--items--left{
-//           color:$Dark-Grayish-Blue;
-//         }
-//         .todo--list{
-//           .todo--li::before{
-//             background-color: $Very-Light-Grayish-Blue;
-//           }
-//         .todo--li{
-//           color:$Very-Dark-Grayish-Blue;
-
-//           .todo--circle{
-//             background-color: $Very-Light-Grayish-Blue;
-//           }
-//           .todo--circle::before{
-
-//             background-color: $Very-Light-Gray;
-//           }
-//         }
-//         }
-//       }
-//     }
-//   }
-
-// }
