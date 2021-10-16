@@ -154,7 +154,6 @@ function onLoadSetTodo() {
     [...todoList.children][index[i]].children[0].classList =
       "todo--circle__completed";
     [...todoList.children][index[i]].style.textDecoration = "line-through";
-    // console.log([...todoList.children][index[i]])
     [...todoList.children][index[i]].style.color = "hsl(235, 19%, 35%)";
   }
 }
