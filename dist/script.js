@@ -7,20 +7,20 @@ const todoInput = document.getElementById("todo--input"),
   filterButtonCompleted = document.getElementById("Completed");
 let = ldmButton = document.getElementById("todo--switch--ldm");
 
-ldmButton.addEventListener("click", function () {
-  const prefersDarkScheme = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
-  // If the OS is set to dark mode...
-  if (prefersDarkScheme) {
-    // ...then apply the .light-theme class to override those styles
-    document.body.classList.toggle("light-theme");
-    // Otherwise...
-  } else {
-    // ...apply the .dark-theme class to override the default light styles
-    document.body.classList.toggle("dark-theme");
-  }
-});
+// ldmButton.addEventListener("click", function () {
+//   const prefersDarkScheme = window.matchMedia(
+//     "(prefers-color-scheme: dark)"
+//   ).matches;
+//   // If the OS is set to dark mode...
+//   if (prefersDarkScheme) {
+//     // ...then apply the .light-theme class to override those styles
+//     document.body.classList.toggle("light-theme");
+//     // Otherwise...
+//   } else {
+//     // ...apply the .dark-theme class to override the default light styles
+//     document.body.classList.toggle("dark-theme");
+//   }
+// });
 
 window.onload = onLoadSetTodo();
 
@@ -31,6 +31,7 @@ filterButtonCompleted.addEventListener("click", filterCompleted, false);
 clearButton.addEventListener("click", clearCompleted, false);
 todoInput.addEventListener("keypress", addTodo, false);
 todoList.addEventListener("click", todoComplete, false);
+todoList.addEventListener("contextmenu", (e) => e.preventDefault());
 
 function addTodo(e) {
   e.preventDefault();
