@@ -31,7 +31,12 @@ filterButtonCompleted.addEventListener("click", filterCompleted, false);
 clearButton.addEventListener("click", clearCompleted, false);
 todoInput.addEventListener("keypress", addTodo, false);
 todoList.addEventListener("click", todoComplete, false);
-todoList.addEventListener("contextmenu", (e) => e.preventDefault());
+todoList.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation();
+  return false;
+});
 
 function addTodo(e) {
   e.preventDefault();
