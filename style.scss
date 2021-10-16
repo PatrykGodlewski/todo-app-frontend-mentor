@@ -38,7 +38,6 @@ body:before {
   height: 30%;
   width: 100%;
   top: 0;
-  
 }
 body {
   overflow-x: hidden;
@@ -105,6 +104,7 @@ body {
       border-radius: 5px;
 
       box-shadow: 10px 10px 80px;
+      user-select: none;
 
       .todo--items--left {
         display: flex;
@@ -222,8 +222,8 @@ body {
             justify-content: space-between;
             align-items: center;
             min-height: 80px;
-            p{
-              flex:1;
+            p {
+              flex: 1;
               word-break: break-word;
               padding-right: 10%;
               line-height: 2rem;
@@ -269,7 +269,7 @@ body {
             );
           }
           button {
-            opacity:1;
+            opacity: 1;
           }
         }
       }
@@ -278,7 +278,6 @@ body {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      
 
       color: hsl(233, 14%, 35%);
 
@@ -304,7 +303,7 @@ body {
     .tf1 {
       width: 100%;
       margin-top: 1.5rem;
-      display:none;
+      display: none;
     }
 
     .todo--drag--drop {
@@ -330,145 +329,146 @@ body {
 }
 @media (prefers-color-scheme: dark) {
   /* defaults to dark theme */
-  body { 
+  body {
     color: #eee;
     background-color: $background--dark;
   }
-  .todo--wrap--ul{
+  .todo--wrap--ul {
     box-shadow: 10px 10px 80px;
-    color:black;
+    color: black;
   }
 }
 @media (prefers-color-scheme: light) {
-    /* defaults to dark theme */
-    body:before{
-      background-image: url("../../images/bg-mobile-light.jpg");
-    }
-    body { 
-      background-color: $Very-Light-Grayish-Blue;
-      .todo--app{
-        .todo--filter{
-          background-color:$Very-Light-Gray ;
-          color:$Dark-Grayish-Blue;
+  /* defaults to dark theme */
+  body:before {
+    background-image: url("../../images/bg-mobile-light.jpg");
+  }
+  body {
+    background-color: $Very-Light-Grayish-Blue;
+    .todo--app {
+      .todo--filter {
+        background-color: $Very-Light-Gray;
+        color: $Dark-Grayish-Blue;
 
-          input[type="radio"]:hover + label {
-            color: $Very-Dark-Grayish-Blue;
-          }
+        input[type="radio"]:hover + label {
+          color: $Very-Dark-Grayish-Blue;
         }
-        
-        .todo--wrap--input{
-          background-color:$Very-Light-Gray ;
-        .todo--input{
-          background-color:$Very-Light-Gray ;
-          color:$Very-Dark-Grayish-Blue;
-        }}
-        .todo--wrap--ul{
+      }
+
+      .todo--wrap--input {
+        background-color: $Very-Light-Gray;
+        .todo--input {
           background-color: $Very-Light-Gray;
-          box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
-          .todo--items--left{
-            color:$Dark-Grayish-Blue;
+          color: $Very-Dark-Grayish-Blue;
+        }
+      }
+      .todo--wrap--ul {
+        background-color: $Very-Light-Gray;
+        box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+        .todo--items--left {
+          color: $Dark-Grayish-Blue;
+        }
+        .todo--list {
+          .todo--li::before {
+            background-color: $Very-Light-Grayish-Blue;
           }
-          .todo--list{
-            .todo--li::before{
+          .todo--li {
+            color: $Very-Dark-Grayish-Blue;
+
+            .todo--circle {
               background-color: $Very-Light-Grayish-Blue;
             }
-          .todo--li{
-            color:$Very-Dark-Grayish-Blue;
-            
-            .todo--circle{
-              background-color: $Very-Light-Grayish-Blue;
-            }
-            .todo--circle::before{
-              
+            .todo--circle::before {
               background-color: $Very-Light-Gray;
             }
           }
-          }
-        }
-      }
-    }
-    
-  }
-
-
-  @media (max-width: 767px) {
-    body{
-      .todo--app {
-        .tf1{
-      display:flex;}
-    }} 
-    body{
-      .todo--app{
-        .todo--items--left {
-          .tf2{
-      display:none;} }
-    }} 
-    body{
-      .todo--app{
-        .todo--wrap--ul{
-          .todo--list{
-            .todo--li{
-              grid-template-columns: 2fr 9fr;
-  
-            }
-          }
         }
       }
     }
   }
-  
-  // .dark-theme{
-  //   color: #eee;
-  //   background-color: $background--dark;
-  // }
+}
 
-  
-  // .light-theme { 
-  //   body:before{
-  //     background-image: url("../../images/bg-mobile-light.jpg");
-  //   }
-  //   body { 
-  //     background-color: $Very-Light-Grayish-Blue;
-  //     .todo--app{
-  //       .todo--filter{
-  //         background-color:$Very-Light-Gray ;
-  //         color:$Dark-Grayish-Blue;
+@media (max-width: 767px) {
+  body {
+    .todo--app {
+      .tf1 {
+        display: flex;
+      }
+    }
+  }
+  body {
+    .todo--app {
+      .todo--items--left {
+        .tf2 {
+          display: none;
+        }
+      }
+    }
+  }
+  body {
+    .todo--app {
+      .todo--wrap--ul {
+        .todo--list {
+          .todo--li {
+            grid-template-columns: 2fr 9fr;
+          }
+        }
+      }
+    }
+  }
+}
 
-  //         input[type="radio"]:hover + label {
-  //           color: $Very-Dark-Grayish-Blue;
-  //         }
-  //       }
-        
-  //       .todo--wrap--input{
-  //         background-color:$Very-Light-Gray ;
-  //       .todo--input{
-  //         background-color:$Very-Light-Gray ;
-  //         color:$Very-Dark-Grayish-Blue;
-  //       }}
-  //       .todo--wrap--ul{
-  //         background-color: $Very-Light-Gray;
-  //         box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
-  //         .todo--items--left{
-  //           color:$Dark-Grayish-Blue;
-  //         }
-  //         .todo--list{
-  //           .todo--li::before{
-  //             background-color: $Very-Light-Grayish-Blue;
-  //           }
-  //         .todo--li{
-  //           color:$Very-Dark-Grayish-Blue;
-            
-  //           .todo--circle{
-  //             background-color: $Very-Light-Grayish-Blue;
-  //           }
-  //           .todo--circle::before{
-              
-  //             background-color: $Very-Light-Gray;
-  //           }
-  //         }
-  //         }
-  //       }
-  //     }
-  //   }
-    
-  // }
+// .dark-theme{
+//   color: #eee;
+//   background-color: $background--dark;
+// }
+
+// .light-theme {
+//   body:before{
+//     background-image: url("../../images/bg-mobile-light.jpg");
+//   }
+//   body {
+//     background-color: $Very-Light-Grayish-Blue;
+//     .todo--app{
+//       .todo--filter{
+//         background-color:$Very-Light-Gray ;
+//         color:$Dark-Grayish-Blue;
+
+//         input[type="radio"]:hover + label {
+//           color: $Very-Dark-Grayish-Blue;
+//         }
+//       }
+
+//       .todo--wrap--input{
+//         background-color:$Very-Light-Gray ;
+//       .todo--input{
+//         background-color:$Very-Light-Gray ;
+//         color:$Very-Dark-Grayish-Blue;
+//       }}
+//       .todo--wrap--ul{
+//         background-color: $Very-Light-Gray;
+//         box-shadow: 10px 10px 80px rgba(0,0,0, 0.3);
+//         .todo--items--left{
+//           color:$Dark-Grayish-Blue;
+//         }
+//         .todo--list{
+//           .todo--li::before{
+//             background-color: $Very-Light-Grayish-Blue;
+//           }
+//         .todo--li{
+//           color:$Very-Dark-Grayish-Blue;
+
+//           .todo--circle{
+//             background-color: $Very-Light-Grayish-Blue;
+//           }
+//           .todo--circle::before{
+
+//             background-color: $Very-Light-Gray;
+//           }
+//         }
+//         }
+//       }
+//     }
+//   }
+
+// }

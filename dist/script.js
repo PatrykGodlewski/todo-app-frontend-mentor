@@ -1,4 +1,3 @@
-
 const todoInput = document.getElementById("todo--input"),
   todoSubmit = document.getElementById("todo--submit"),
   todoList = document.getElementById("todo--list"),
@@ -6,12 +5,12 @@ const todoInput = document.getElementById("todo--input"),
   filterButtonAll = document.getElementById("All"),
   filterButtonActive = document.getElementById("Active"),
   filterButtonCompleted = document.getElementById("Completed");
-  let = ldmButton = document.getElementById("todo--switch--ldm");
+let = ldmButton = document.getElementById("todo--switch--ldm");
 
-
-
- ldmButton.addEventListener("click", function() {
-  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+ldmButton.addEventListener("click", function () {
+  const prefersDarkScheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
   // If the OS is set to dark mode...
   if (prefersDarkScheme) {
     // ...then apply the .light-theme class to override those styles
@@ -218,9 +217,9 @@ function filterCompleted() {
 let liSort = new Sortable(todoList, {
   animation: 150,
   onEnd: function (e) {
-    localStorageUpdate()
+    localStorageUpdate();
   },
 
-  delayOnTouchOnly:true,
-  delay: 1000,
+  delayOnTouchOnly: true,
+  delay: 400,
 });
