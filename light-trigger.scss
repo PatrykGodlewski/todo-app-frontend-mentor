@@ -1,0 +1,73 @@
+// LIGHT THEME
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+//DARK THEME
+$Very-Dark-Blue: hsl(235, 21%, 11%);
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+$Light-Grayish-Blue-dark: hsl(234, 39%, 85%);
+$Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+$Dark-Grayish-Blue-dark: hsl(234, 11%, 52%);
+$Very-Dark-Grayish-Blue-dark: hsl(233, 14%, 35%);
+$Very-Dark-Grayish-Blue2: hsl(237, 14%, 26%);
+
+$ulElement--dark: hsl(235, 24%, 19%);
+$background--dark: hsl(235, 21%, 11%);
+
+$leftPadding_text_decorLine: 13%;
+
+body:before {
+  background-image: url("../../images/bg-desktop-light.jpg");
+}
+body {
+  background-color: $Very-Light-Grayish-Blue;
+  .todo--app {
+    .attribution {
+      color: $Dark-Grayish-Blue;
+      a {
+        color: $Very-Dark-Grayish-Blue;
+      }
+    }
+    .todo--filter {
+      background-color: $Very-Light-Gray;
+      color: $Dark-Grayish-Blue;
+
+      input[type="radio"]:hover + label {
+        color: $Very-Dark-Grayish-Blue;
+      }
+    }
+
+    .todo--wrap--input {
+      background-color: $Very-Light-Gray;
+      .todo--input {
+        background-color: $Very-Light-Gray;
+        color: $Very-Dark-Grayish-Blue;
+      }
+    }
+    .todo--wrap--ul {
+      background-color: $Very-Light-Gray;
+      box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+      .todo--items--left {
+        color: $Dark-Grayish-Blue;
+      }
+      .todo--list {
+        .todo--li::before {
+          background-color: $Very-Light-Grayish-Blue;
+        }
+        .todo--li {
+          color: $Very-Dark-Grayish-Blue;
+
+          .todo--circle {
+            background-color: $Very-Light-Grayish-Blue;
+          }
+          .todo--circle::before {
+            background-color: $Very-Light-Gray;
+          }
+        }
+      }
+    }
+  }
+}

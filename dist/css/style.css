@@ -13,11 +13,11 @@
 body:before {
   content: "";
   z-index: -1;
-  background-image: url("../../images/bg-mobile-dark.jpg");
+  background-image: url("../../images/bg-desktop-dark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 30%;
+  height: 40%;
   width: 100%;
   top: 0;
 }
@@ -111,6 +111,10 @@ body .todo--app .todo--wrap--ul {
   border-radius: 5px;
   -webkit-box-shadow: 10px 10px 80px;
           box-shadow: 10px 10px 80px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body .todo--app .todo--wrap--ul .todo--items--left {
@@ -359,6 +363,12 @@ body .todo--app .attribution a {
   text-decoration: inherit;
 }
 
+@media (prefers-color-scheme: dark) and (max-width: 767px) {
+  body::before {
+    background-image: url("../../images/bg-mobile-dark.jpg");
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   /* defaults to dark theme */
   body {
@@ -373,12 +383,17 @@ body .todo--app .attribution a {
 }
 
 @media (prefers-color-scheme: light) {
-  /* defaults to dark theme */
   body:before {
-    background-image: url("../../images/bg-mobile-light.jpg");
+    background-image: url("../../images/bg-desktop-light.jpg");
   }
   body {
     background-color: #e4e5f1;
+  }
+  body .todo--app .attribution {
+    color: #9394a5;
+  }
+  body .todo--app .attribution a {
+    color: #484b6a;
   }
   body .todo--app .todo--filter {
     background-color: #fafafa;
@@ -416,6 +431,12 @@ body .todo--app .attribution a {
   }
 }
 
+@media (prefers-color-scheme: light) and (max-width: 767px) {
+  body::before {
+    background-image: url("../../images/bg-mobile-light.jpg");
+  }
+}
+
 @media (max-width: 767px) {
   body .todo--app .tf1 {
     display: -webkit-box;
@@ -426,8 +447,12 @@ body .todo--app .attribution a {
     display: none;
   }
   body .todo--app .todo--wrap--ul .todo--list .todo--li {
-    -ms-grid-columns: 2fr 9fr;
-        grid-template-columns: 2fr 9fr;
+    -ms-grid-columns: 2fr 8fr;
+        grid-template-columns: 2fr 8fr;
+  }
+  body .todo--app .todo--wrap--ul .todo--list .todo--li button {
+    opacity: 1;
+    margin-right: 25px;
   }
 }
 /*# sourceMappingURL=style.css.map */

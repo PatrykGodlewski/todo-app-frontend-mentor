@@ -4,29 +4,71 @@ const todoInput = document.getElementById("todo--input"),
   clearButton = document.getElementById("todo--button--clear"),
   filterButtonAll = document.getElementById("All"),
   filterButtonActive = document.getElementById("Active"),
-  filterButtonCompleted = document.getElementById("Completed");
-let = ldmButton = document.getElementById("todo--switch--ldm");
+  filterButtonCompleted = document.getElementById("Completed"),
+  filterButtonAll2 = document.getElementById("All2"),
+  filterButtonActive2 = document.getElementById("Active2"),
+  filterButtonCompleted2 = document.getElementById("Completed2"),
+  ldmButton = document.getElementById("todo--switch--ldm"),
+  htmlHead = document.getElementsByTagName("head"),
+  iconForDark = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>`,
+  iconForLight = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path fill="#FFF" fill-rule="evenodd" d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z"/></svg>`;
 
-// ldmButton.addEventListener("click", function () {
-//   const prefersDarkScheme = window.matchMedia(
-//     "(prefers-color-scheme: dark)"
-//   ).matches;
-//   // If the OS is set to dark mode...
-//   if (prefersDarkScheme) {
-//     // ...then apply the .light-theme class to override those styles
-//     document.body.classList.toggle("light-theme");
-//     // Otherwise...
-//   } else {
-//     // ...apply the .dark-theme class to override the default light styles
-//     document.body.classList.toggle("dark-theme");
-//   }
-// });
+const styleLinkDark = document.createElement("link");
+styleLinkDark.id = "s_dark";
+styleLinkDark.rel = "stylesheet";
+styleLinkDark.href = "dist/css/dark-trigger.css";
 
-window.onload = onLoadSetTodo();
+const styleLinkLight = document.createElement("link");
+styleLinkLight.id = "s_light";
+styleLinkLight.rel = "stylesheet";
+styleLinkLight.href = "dist/css/light-trigger.css";
+
+const prefersDarkScheme = window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+// If the OS is set to dark mode...
+if (prefersDarkScheme) {
+  ldmButton.innerHTML = iconForLight;
+  ldmButton.children[0].id = "i_light";
+} else {
+  ldmButton.innerHTML = iconForDark;
+  ldmButton.children[0].id = "i_dark";
+}
+
+ldmButton.addEventListener(
+  "click",
+  function (e) {
+    console.log("xd");
+    if (e.target.id === "i_light") {
+      ldmButton.innerHTML = iconForDark;
+      ldmButton.children[0].id = "i_dark";
+
+      let s_light = document.getElementById("s_light");
+      s_light === null ? htmlHead[0].appendChild(styleLinkLight) : null;
+      let s_dark = document.getElementById("s_dark");
+      s_dark === null ? null : s_dark.remove();
+    } else if (e.target.id === "i_dark") {
+      ldmButton.innerHTML = iconForLight;
+      ldmButton.children[0].id = "i_light";
+
+      let s_dark = document.getElementById("s_dark");
+      s_dark === null ? htmlHead[0].appendChild(styleLinkLight) : null;
+      let s_light = document.getElementById("s_light");
+      s_light === null ? null : s_light.remove();
+    }
+  },
+  false
+);
+
+window.addEventListener("DOMContentLoaded", onLoadSetTodo);
+window.addEventListener("DOMContentLoaded", todoCounter);
 
 filterButtonAll.addEventListener("click", filterAll, false);
 filterButtonActive.addEventListener("click", filterActive, false);
 filterButtonCompleted.addEventListener("click", filterCompleted, false);
+filterButtonAll2.addEventListener("click", filterAll, false);
+filterButtonActive2.addEventListener("click", filterActive, false);
+filterButtonCompleted2.addEventListener("click", filterCompleted, false);
 
 clearButton.addEventListener("click", clearCompleted, false);
 todoInput.addEventListener("keypress", addTodo, false);
@@ -135,7 +177,7 @@ function todoCounter() {
   let lastIndex = [...lis].length;
 
   const counterTag = document.getElementById("todo--counter");
-  counterTag.innerText = lastIndex + " ";
+  counterTag.innerText = counterTag.innerText === "" ? "0 " : lastIndex + " ";
 }
 function updateCompletedIndex() {
   let list = getIndex();
@@ -181,6 +223,7 @@ function localStorageUpdate() {
   let list = getList();
   localStorage.clear();
   localStorage.setItem("tasks", JSON.stringify(list));
+  updateCompletedIndex();
 }
 //////////////////////////////////////////
 

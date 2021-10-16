@@ -1,0 +1,60 @@
+body:before {
+  background-image: url("../../images/bg-desktop-light.jpg");
+}
+
+body {
+  background-color: #e4e5f1;
+}
+
+body .todo--app .attribution {
+  color: #9394a5;
+}
+
+body .todo--app .attribution a {
+  color: #484b6a;
+}
+
+body .todo--app .todo--filter {
+  background-color: #fafafa;
+  color: #9394a5;
+}
+
+body .todo--app .todo--filter input[type="radio"]:hover + label {
+  color: #484b6a;
+}
+
+body .todo--app .todo--wrap--input {
+  background-color: #fafafa;
+}
+
+body .todo--app .todo--wrap--input .todo--input {
+  background-color: #fafafa;
+  color: #484b6a;
+}
+
+body .todo--app .todo--wrap--ul {
+  background-color: #fafafa;
+  -webkit-box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.3);
+}
+
+body .todo--app .todo--wrap--ul .todo--items--left {
+  color: #9394a5;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li::before {
+  background-color: #e4e5f1;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li {
+  color: #484b6a;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle {
+  background-color: #e4e5f1;
+}
+
+body .todo--app .todo--wrap--ul .todo--list .todo--li .todo--circle::before {
+  background-color: #fafafa;
+}
+/*# sourceMappingURL=light-trigger.css.map */
